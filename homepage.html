@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Open Online Coding</title>
+    <link rel=" icon" href="images/logo_no_text.PNG">
+    <link rel="stylesheet" href="style/homepage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script/database.js"></script>
+    <script src="script/homepage.js"></script>
+    <script src="script/cookiesHandler.js"></script>
+
+</head>
+<body>
+    
+    
+    <!--Main section with the login and register forms-->
+    <div id = "login-register-container" class="col-s-8 col-5 box">
+        
+        <div id="logo-container">
+            <img id="logo" src="images/logo.png" alt="logo">
+        </div>
+
+        <!--Login form-->
+        <form id="login">
+            <!--Email-->
+            <div class="user-box">
+            <label for="Email">Email *</label><br>
+            <input type="text" id="Email" name="Email" required>
+            </div><br>
+            <!--Password-->
+            <div class="user-box">
+            <label for="Password">Password *</label><br>
+            <input type="password" id="Password" name="Password" required>
+            </div><br>
+
+            <!--Remember me and reset password texts-->
+            <div id="login-texts"> 
+                <span id="remember-me"> <input type="checkbox" id="rem" name="rem" value="rem"> Remember me </span>
+                <span id="reset-password" onclick="showPasswordPopUp()"> Forgot login Details? </span>
+            </div>
+
+            <!--Submit button return false on button so that it doesn't come back to the homepage after the redirection to the index-->
+            <div class="button-wrapper">
+                <button class="submit-button button" onclick="login(); return false;">Login</button>
+            </div>  
+
+
+        </form>
+
+        <!--Register form-->
+        <form id="register" name="register" onsubmit="return validateForm()">
+            <!--Username-->
+            <div class="user-box">
+            <label for="username">Username *</label><br>
+            <input type="text" id="username" name="Username" placeholder="Coder_x" required><br>
+        </div>
+            <!--NIA-->
+            <div class="user-box">
+            <label for="NIA">NIA *</label><br>
+            <input type="text"  id="NIA" name="NIA" placeholder="100 XXX XXX" onkeydown="changeColorFocus('NIA')" required><br>
+        </div>
+            <!--Password-->
+            <div class="user-box">
+            <label for="password">Password *</label><br>
+            <input type="password"  id="password" name="Password" placeholder="Lowercase or numbers. Max length 8." onkeydown="changeColorFocus('password')" required><br>
+        </div>
+        <!--Confirm Password-->
+        <div class="user-box">
+            <label for="confirm-password">Confirm Password *</label><br>
+            <input type="password"  id="confirm-password" name="Confirm-Password" onkeydown="changeColorFocus('confirm-password')" required><br>
+        </div>
+            <!--Name-->
+            <div class="user-box">
+            <label for="name">Name *</label><br>
+            <input type="text" id="name" name="Name" placeholder="John" required><br>
+        </div>
+            <!--Surname-->
+            <div class="user-box">
+            <label for="surname">Surname *</label><br>
+            <input type="text" id="surname" name="Surname" placeholder="Doe" required><br>
+        </div>
+            <!--email-->
+            <div class="user-box">
+            <label for="email">Email *</label><br>
+            <input type="email"  id="email" name="email" placeholder="name@domain.extension"  onkeydown="changeColorFocus('email')" required><br>
+        </div>
+            <!--Birth-->
+            <div class="user-box">
+            <label for="birth">Date of birth *</label><br>
+            <input type="date" id="birth" name="birth" required><br>
+        </div>
+            <!--ID-->
+            <div class="user-box">
+            <label for="national-id">ID *</label><br>
+            <input type="text" id="national-id" name="national-id" placeholder="Ex. 10403947A" onkeydown="changeColorFocus('national-id')" required><br>
+        </div>
+            <!--Role-->
+            <div class="user-box">
+            <label for="role">Choose your role</label>
+                <select id="role" name="role">
+                    <option value="teacher">Teacher</option>
+                    <option value="administrator">Administrator</option>
+                    <option value="student">Student</option>                                        
+                </select>
+            <br>
+            <br>
+        </div>
+            <!--Degree-->
+            <div class="user-box">
+        <div id="hidden" style="display: none;">
+            <label for="degree">Choose your degree</label>
+                <select id="degree" name="degree">
+                    <option value="computer science">Computer Science Engineering</option>
+                    <option value="biomedical">Biomedical Engineering</option>
+                    <option value="telematics">Telematics Engineering</option>
+                </select>
+            <br>
+            <br>
+        </div>
+    </div>
+        <!--University-->
+        <div class="user-box">
+            <label for="university">University *</label><br>
+            <input type="text" id="university" name="id" value="University Carlos III of Madrid" readonly><br>
+        </div>
+            <!--Language-->
+            <div class="user-box">
+            <label for="language">Choose your language</label>
+                <select id="language" name="language">
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="italian">Italian</option>
+                </select>
+            </div>
+            <br>
+            <!--Terms-->
+            <div class="user-box">
+                <input type="checkbox" id="terms" name="temrs" value="terms" required>
+                <label for="terms">I have read and accept the <a id="link-terms" href="#">Terms of Use</a> * </label>
+            <br>
+        </div>
+            <br>
+            <div class="button-wrapper">
+            <!--Submit button-->
+            <input class="button" id="save-button" type="submit" value="Save">
+            <!--Reset button-->
+            <button class="submit-button button" onclick="resetForm()">Delete</button>
+        </div>
+        <br><br>
+        <hr>
+        <p id="note">Fields marked with * are mandatory</p>
+        </form> 
+
+        <div id="change-form">
+            <span id="change-text">Not registered? Click <span id="change-form-link" onclick="showRegister()">here</span> to register</span>
+        </div>
+    </div>
+    <!-- Homepage section-->
+     <div class="col-s-8 col-5 box" id="homepage">
+        <img id="logo-homepage" src="images/logo.png" alt="logo">
+        
+        <div id="description-text">A place to ask, discuss and learn about your favourite programming topics.</div>
+        <div id="slogan-text">Chat, Learn, Code!</div>
+        <button class="submit-button button" onclick="redirectLogin()">Start Here</button>
+    </div>
+     
+
+    <!--Popup to reset the password-->
+    <div id="popup1" class="overlay">
+        <div class="popup col-s-8 col-5">
+            <h2>Reset your password</h2>
+            <a class="close" href="#" onclick="hidePopup()">&times;</a>
+            <div class="content">
+                Please, introduce the email associated with your account.
+            </div>
+            <textarea id="text-area-email" name="text-area-email"  placeholder="Type your email here">
+             </textarea>
+             <button id="reset--password-button" onclick="hidePopup()">Reset</button>
+        </div>
+    </div>
+
+    </body>

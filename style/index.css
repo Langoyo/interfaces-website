@@ -1,0 +1,1017 @@
+[class*=col-] {
+    width: 100%;
+    float: left
+}
+
+.row::after {
+    content: "";
+    clear: both
+}
+/*For tablets*/
+@media only screen and (min-width:600px) {
+    .col-s-1 {
+        width: 8.33%
+    }
+
+    .col-s-2 {
+        width: 16.66%
+    }
+
+    .col-s-3 {
+        width: 25%
+    }
+
+    .col-s-4 {
+        width: 33.33%
+    }
+
+    .col-s-5 {
+        width: 41.66%
+    }
+
+    .col-s-6 {
+        width: 50%
+    }
+
+    .col-s-7 {
+        width: 58.33%
+    }
+
+    .col-s-8 {
+        width: 66.66%
+    }
+
+    .col-s-9 {
+        width: 75%
+    }
+
+    .col-s-10 {
+        width: 83.33%
+    }
+
+    .col-s-11 {
+        width: 91.66%
+    }
+
+    .col-s-12 {
+        width: 100%
+    }
+
+    .middle-container {
+        margin: 1.6666666667%!important
+    }
+
+    #index-buttons {
+        margin: 2.5%;
+        background-color: transparent
+    }
+
+    .left_drop {
+        display: none!important
+    }
+
+    #desktop_links {
+        display: contents!important
+    }
+
+    #left-container {
+        display: inline-block!important
+    }
+
+    #form-remove-event-calendar {
+        display: block!important;
+        float: none!important
+    }
+
+    #form-add-event-calendar {
+        display: block!important
+    }
+}
+/*For desktop*/
+@media only screen and (min-width:768px) {
+    .col-1 {
+        width: 8.33%
+    }
+
+    .col-2 {
+        width: 16.66%
+    }
+
+    .col-3 {
+        width: 25%
+    }
+
+    .col-4 {
+        width: 33.33%
+    }
+
+    .col-5 {
+        width: 41.66%
+    }
+
+    .col-6 {
+        width: 50%
+    }
+
+    .col-7 {
+        width: 58.33%
+    }
+
+    .col-8 {
+        width: 66.66%
+    }
+
+    .col-9 {
+        width: 75%
+    }
+
+    .col-10 {
+        width: 83.33%
+    }
+
+    .col-11 {
+        width: 91.66%
+    }
+
+    .col-12 {
+        width: 100%
+    }
+
+    .tablet-link {
+        display: none!important
+    }
+
+    .middle-container {
+        margin: 2%!important
+    }
+
+    #news {
+        background-color: transparent!important;
+        box-shadow: none!important
+    }
+
+    #index-buttons,#news {
+        margin: 4%
+    }
+
+    #logo {
+        max-width: 30%!important
+    }
+
+    #hide-name-dropdown {
+        display: none!important
+    }
+
+    #desktop-header,#desktop_links {
+        display: contents!important
+    }
+
+    #form-add-event-calendar,#form-remove-event-calendar,#left-container {
+        display: inline-block!important
+    }
+
+    #form-remove-event-calendar {
+        float: right!important
+    }
+
+    #help_dropdown {
+        right: 200px!important
+    }
+}
+
+header,nav {
+    box-shadow: 0 15px 25px rgba(0,0,0,.4);
+    border-radius: 10px
+}
+
+/*Header is sticked to the top of the screen while scrolling, z-index is one so that it goes over the youtube videos while scrolling*/
+
+header {
+    background-color: #262421;
+    color: #fff;
+    margin: 1%;
+    position: sticky;
+    top: 0;
+    z-index: 1
+}
+
+nav {
+    overflow: hidden;
+    background-color: #423f3b
+}
+
+#index-buttons {
+    box-shadow: none!important
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+body {
+    background-color: #00487c
+    
+}
+/*General container for the different sections,All the sections have a margin of 1%. The lateral ones have a size of 25%*/
+.container {
+    font-family: Arial,sans-serif;
+    background-color: #edeae5;
+    margin: 1%
+}
+
+.container-element {
+    border: 1px solid #000;
+    border-radius: 10px
+}
+/*Container texts have 2% padding*/
+.container h1,.container h2 {
+    padding: 2%
+}
+
+.course-h1 {
+    text-decoration: underline;
+    font-size: 30px
+}
+
+.container p {
+    font-size: 20px;
+    padding: 2%
+}
+
+#logo {
+    width: 98%;
+    margin: 2%
+}
+
+.dark {
+    background-color: #edeae5!important;
+    color: #050709!important
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: #e0ffff;
+    padding: 14px 16px;
+    font-size: 17px
+}
+/*The images in the footer and header go in the right part*/
+.nav-right {
+    float: right
+}
+
+/*Buttons in the navigation section*/
+.button1,nav a {
+    text-align: center;
+    text-decoration: none
+}
+
+.button1 {
+    border: 2px solid #000;
+    background-color: #edeae5;
+    color: #000;
+    font-size: 24px;
+    width: 96%;
+    height: 20%;
+    padding: 10%;
+    margin: 2%;
+    transition: all .5s;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    align-items: flex-start;
+    box-sizing: border-box
+}
+/* Creating a shadow for the button*/
+.button1:hover {
+    font-weight: bolder;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)
+}
+/*Adding an animation to the button*/
+.button1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: .5s
+}
+
+.button1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: .5s
+}
+
+.button1:hover span {
+    padding-right: 25px
+}
+
+.button1:hover span:after {
+    opacity: 1;
+    right: 0
+}
+
+#forum-list {
+    background-color: #edeae5af;
+    display: flex;
+    justify-content: space-evenly
+}
+
+footer {
+    clear: both;
+    position: relative;
+    height: 200px;
+    margin: 1%
+}
+
+#forum2 {
+    overflow: hidden
+}
+/*Adding the lines to separate the links in the bottom of the page*/
+footer a {
+    border-left: outset 1px #f2f2f2
+}
+
+li a {
+    font-size: 20px
+}
+/*Removing the border of the first element in the footer*/
+#course_forum,.no-left-border-button {
+    border-left: none
+}
+
+#middle-container table,.my-table {
+    border: 2px solid #000;
+    border-collapse: collapse;
+    width: 100%;
+    justify-content: center;
+    table-layout: fixed
+}
+
+.my-th {
+    padding: 5px
+}
+
+#middle-container td,#middle-container th,.my-td,.my-th {
+    width: 25%;
+    border: 1px solid #000;
+    text-align: center;
+    justify-content: center
+}
+
+#middle-container td,#middle-container th {
+    padding: 5px
+}
+
+#middle-container th,.my-th {
+    background-color: gray
+}
+/*forum table overriding the general table sytling*/
+.forum-table {
+    border: 0;
+    border-collapse: collapse;
+    border-style: none;
+    height: 100%;
+    table-layout: fixed
+}
+
+.forum-table th,.my-td {
+    background-color: transparent;
+    padding: 8px
+}
+
+#course_forum {
+    border-bottom: 1px solid #000;
+    border-top: none;
+    border-right: none;
+    padding: 8px;
+    font-weight: bolder;
+    text-align: center;
+    color: #fff;
+    background-color: #262421
+}
+
+.middle-container {
+    background-color: #edeae5af
+}
+/*Container for the youtube videos iframe,Setting a bottom padding so that the video maintains the ratio 16:9*/
+.centered {
+    position: relative;
+    padding-bottom: 56.25%
+}
+/*Setting parameters to center the videos*/
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    border-width: 0;
+    margin-left: 20%;
+    margin-top: 5%
+}
+
+.toBeReplaced {
+    visibility: hidden;
+    position: relative
+}
+
+#next-events,#next-events:visited {
+    text-decoration: none;
+    color: #000
+}
+/*Initially lightbox not displayed*/
+.lightbox {
+    display: none
+}
+/*When clicking on news and events display lightbox in the middle of the screen*/
+.lightbox:target {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2
+}
+
+.lightbox figcaption {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 1.5em;
+    background-color: #262421;
+    border: 1px solid #fff;
+    border-radius: 10px
+}
+
+.lightbox .figcaption-popup {
+    background-color: #aac0d6;
+    border-radius: 10px;
+    border: 0
+}
+
+.lightbox .close {
+    position: relative;
+    display: block
+}
+
+.lightbox .close::after {
+    right: -1rem;
+    top: -1rem;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 50%;
+    color: #fff;
+    content: "x";
+    cursor: pointer
+}
+
+.lightbox .close::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.7);
+    content: "";
+    cursor: default
+}
+
+.lightbox_data p {
+    border: 2px solid #e0ffff;
+    border-radius: 10px;
+    color: #fff
+}
+
+.lightbox_title {
+    border-bottom: 1px solid #e0ffff;
+    font-size: 23px;
+    color: #fff
+}
+/*Images format*/
+img:hover {
+    opacity: .5
+}
+
+.nav-right img {
+    max-width: 25px;
+    max-height: auto;
+    float: right
+}
+
+.profile-pic {
+    padding: 2%;
+    max-width: 40%;
+    max-height: auto;
+    border-radius: 50%
+}
+
+.header-profile-pic {
+    max-width: 30px;
+    float: left;
+    margin: 14px 16px;
+    font-size: 17px;
+    border-radius: 50%;
+}
+
+.message {
+    max-width: 30%;
+    max-height: auto
+}
+/*Adjusting the email font size so that it scales with the device*/
+.e-mail {
+    font-size: 1vw!important
+}
+
+.e-mail:hover {
+    text-decoration: underline;
+    color: #00f
+}
+
+.topic-image {
+    max-width: 20%;
+    max-height: auto;
+    margin: auto;
+    padding: 2%
+}
+/*Initial configuration of the central container displaying the courses only*/
+#courses,.topic-image {
+    display: block
+}
+
+#grades {
+    box-shadow: none
+}
+
+#desktop-header,#desktop_links,#forum2,#forums,#grades,#left-container,#my-courses,#notifications,#students,#user-guide,#user-profile {
+    display: none
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0
+}
+
+#index-dropdown-button {
+    padding: 14px 16px
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #262421;
+    min-width: 160px;
+    z-index: 1;
+    left: 0
+}
+
+.dropdown-content>a:hover {
+    background-color: #423f3b;
+    border-radius: 10px;
+    font-weight: bolder
+}
+
+#help_dropdown,#right_dropdown {
+    right: 0;
+    left: inherit!important;
+    margin-top: 19px
+}
+
+#help_dropdown {
+    right: 180px
+}
+
+.dropdown-content a {
+    float: none;
+    color: #e0ffff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left
+}
+ /*Arrow for dropdownmenu*/
+.arrow {
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px
+}
+
+.down,.down2 {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg)
+}
+
+.down2 {
+    margin-top: 19px
+}
+
+.download_button:hover {
+    font-weight: bolder
+}
+
+#container_gr {
+    background-color: #1867b7;
+    height: 5%
+}
+
+.download_button {
+    background-color: #edeae5;
+    padding: 3%
+}
+
+#appendBTN {
+    width: 100%
+}
+
+#append_button {
+    padding-bottom: 5%;
+    width: 100%;
+    border: 1px #000
+}
+
+.show {
+    display: block!important
+}
+/*list of courses*/
+#my-courses ul {
+    margin-left: 10%;
+    border: 1px #000
+}
+
+#my-courses ul,#profile-list ul {
+    padding: 5%;
+    list-style-type: none
+}
+
+#my-courses img,#profile-list img {
+    vertical-align: middle;
+    max-width: 100px
+}
+
+#my-courses ul li p {
+    display: inline;
+    vertical-align: middle
+}
+
+#my-course h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center
+}
+
+#my-courses p {
+    margin-left: 10%
+}
+
+#my-courses li {
+    margin-bottom: 10%
+}
+/*shadows containers and round corners*/
+.button1,.container,.dropdown-content {
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px
+}
+
+.dark_background {
+    background-color: #010633!important
+}
+
+.dark_border {
+    border-left: outset 1px #050709!important
+}
+
+#news-events {
+    box-shadow: 0 15px 25px rgba(0,0,0,.4)
+}
+
+#news-events,#todo-un-list {
+    background-color: #edeae5!important
+}
+
+#news {
+    margin: 4%;
+    background-color: transparent!important;
+    box-shadow: none!important
+}
+
+.add-event-form-calendar,.header-form-calendar {
+    color: #fff
+}
+
+#form-remove-event-calendar {
+    float: none
+}
+
+#form-add-event-calendar,#form-remove-event-calendar {
+    margin-top: 20px;
+    width: 50%;
+    display: block
+}
+
+#calendar-window {
+    margin-top: 400px
+}
+
+.notification-el {
+    max-width: 30%;
+    margin: 2% 10% 10%
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0
+}
+
+.slider,.slider:before {
+    position: absolute;
+    -webkit-transition: .4s;
+    transition: .4s
+}
+
+.slider {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc
+}
+
+.slider:before {
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff
+}
+
+input:checked+.slider {
+    background-color: #2196f3
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196f3
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px)
+}
+
+.slider.round {
+    border-radius: 34px
+}
+
+#profile-img,.slider.round:before {
+    border-radius: 50%
+}
+
+.right {
+    float: right
+}
+
+.left {
+    float: left
+}
+
+#profile-img {
+    width: 100%
+}
+
+#link-profile {
+    width: 30%;
+    text-decoration: underline;
+    color: #00f;
+    margin: 0 2% 2%;
+    float: left;
+    display: block
+}
+/*Search section*/
+#search-container {
+    margin: 30px
+}
+
+#search-bar {
+    background-color: #edeae5!important;
+    box-shadow: 0 15px 25px rgba(0,0,0,.4);
+    margin-bottom: 5%
+}
+ /* The search field */
+#mySearches {
+    box-sizing: border-box;
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%
+}
+  /* The search field when it gets focus/clicked on */
+#mySearches:focus {
+    outline: 3px solid #ddd
+}
+ /* The container <div> - needed to position the dropdown content */
+.search-drop {
+    width: 100%
+}
+/* Dropdown Content (Hidden by Default) */
+.search-content {
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    z-index: 1;
+    width: 100%
+}
+/* Links inside the dropdown */
+.search-content a {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block
+}
+/* Change color of dropdown links on hover */
+.search-content a:hover {
+    background-color: #f1f1f1
+}
+
+#content-searches {
+    display: none
+}
+
+#delivery-status {
+    display: inline-flex
+}
+
+#submission {
+    color: red;
+    font-weight: 700
+}
+
+#btn-submit {
+    margin-left: 40%;
+    margin-top: 10%
+}
+
+#delivery-comment {
+    width: 100%;
+    height: 100px;
+    padding: 0
+}
+
+#input-delivery,#submit-poll {
+    margin-top: 10%
+}
+
+#submit-poll {
+    display: none;
+    color: green
+}
+
+.t01 {
+    margin: auto!important;
+    max-width: 90%
+}
+
+#request-comment {
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: 100%
+}
+
+#feedback-request-review {
+    display: none;
+    color: green
+}
+
+.graph-grades {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 80%
+}
+
+#center-buttons-grades {
+    display: inline-block;
+    width: 100%
+}
+
+#download-grades-button, #request-button {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 3%
+
+}
+#request-popup-button{
+ width: 40%;
+ margin-left: 7%;
+ margin-right: 3%;
+ text-align: center;
+
+}
+#form-request{
+    width: 40%;
+    margin:0px; padding:0px; display:inline;
+    font-size: 2px;
+}
+
+#request-popup-button {
+    margin-left: 3%
+}
+
+#activities-tools-button {
+    margin-left: 3%
+}
+
+#fullscreen-popup,.new-topic-popup-window {
+    z-index: 101;
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+#fullscreen-popup {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26,24,21,.8);
+    padding: 1.5em 1.5em 1.5em 1%
+}
+
+.new-topic-popup-window {
+    background-color: #aac0d6;
+    border-radius: 10px;
+    padding: 1%;
+    border: 0
+}
+
+.close-popup-button {
+    float: right
+}
+
+#create-course-button {
+    margin-left: 3%
+}
+
+.forum-new-topic-button {
+    margin-left: 3%;
+    margin-bottom: 3%
+}
+
+#courses-student,#courses-teacher,#student-grades,#teacher-grades {
+    display: none
+}
+
+#forum-topic-reply-area {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%
+}
+
+#forum-reply-button {
+    margin-right: 5%;
+    margin-bottom: 5%;
+    float: right
+}
+
+#center-panel {
+    overflow: hidden
+}

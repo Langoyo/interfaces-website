@@ -1,0 +1,25 @@
+#text-report-problem{
+    margin-left: 4%;
+}
+#text-area-report-problem{
+    width:80%;
+    border-radius: 10px;
+    margin-left: 7%;
+    padding:3%;
+    border: 2px solid black;
+
+}
+#feedback-report-problem{
+display: none;
+margin-left: 4%;
+margin-bottom: 0px;
+font-size: 17px;
+}
+#button-report-problem{
+    margin-left: 7%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+#report-problem{
+    display: none;
+}

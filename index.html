@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Online Coding</title>
+    <link rel=" icon" href="images/logo_no_text.PNG">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/report-problem.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script/index.js"></script>
+
+    <link rel="stylesheet" href="style/courses.css">
+    <script src="script/courses.js"></script>
+
+    <!--Calendar plugin-->
+    <link rel="stylesheet" href="style/evo-calendar.css" />
+    <script src="script/evo-calendar.js"></script>
+
+    <link rel="stylesheet" href="style/todo-list.css" />
+    <script src="script/todo-list.js"></script>
+
+    <!--database functionalities for forum and grades-->
+    <script src="script/database.js"></script>
+    <script src="script/admin.js"></script>
+    <script src="script/activities.js"></script>
+    
+    
+
+
+
+</head>
+
+<body>
+
+    <div id="global-container">
+        <header>
+
+            <!--Title of the page-->
+            <img id="logo" src="images/logo.png" alt="logo" onclick="centralContentChange('#courses')" />
+
+            <!--Header navigation bar-->
+            <nav>
+                <div class="dropdown left_drop">
+                    <button class="dropbtn" id="index-dropdown-button" onclick="myFunction('left_dropdown')">
+                        <i class="arrow down"></i>
+                    </button>
+                    <div class="dropdown-content" id="left_dropdown">
+                        <a onclick="centralContentChange('#courses')">Courses</a>
+                        <a id="change-with-role-dropdown" onclick="centralContentChange('#my-courses')">My courses</a>
+                        <a onclick="centralContentChange('#forums'); showForums();">Forums</a>
+                        <a id="student-grades-links" onclick="centralContentChange('#student-grades')">Grades</a>
+                        <a id="teacher-grades-links" onclick="centralContentChange('#teacher-grades')">Grades</a>
+                        <a id="student-materials-links" onclick="centralContentChange('#courses-student')">Materials</a>
+                        <a id="teacher-materials-links" onclick="centralContentChange('#courses-teacher')">Materials</a>
+                        <a id="activities-drop" onclick="centralContentChange('#activities')">Activities</a>
+                        <a href="#news-events"><span>Last News</span></a>
+                        <a href="#news-events"><span>Next Events</span></a>
+                        <a href="#todo-list"><span>TO-DO list</span></a>
+                        <a href="#search-bar"><span>Search</span></a>
+                    </div>
+                </div>
+
+
+                <!--Links to sctions on the left part of the header. 
+                    Calling a function that hides other elements and displays the one passed as parameter-->
+                <div id="desktop_links">
+                    <a id="change-with-role-header" onclick="centralContentChange('#courses')">Courses</a>
+                    <a onclick="centralContentChange('#forums'); showForums();">Forums</a>
+                    <a id="student-grades-nav" onclick="centralContentChange('#student-grades')">Grades</a>
+                        <a id="teacher-grades-nav" onclick="centralContentChange('#teacher-grades')">Grades</a>
+                </div>
+
+                <!--Options on the right part of the header-->
+                <div class="nav-right">
+
+                    <a href="#" target="_self"><img id="spain-image" src="images/spain.svg" alt="language"
+                            title="Change language"></a>
+                    <a onclick="myFunction('help_dropdown')"><img id="help-image" src="images/information.png"
+                            alt="help" title="Help"></a>
+                    <a href="#" onclick="changeColor()"><img id="moon-image" src="images/night-day.png" alt="night_mode"
+                            title="Night mode"></a>
+                    <a href="#global-container"><img id="up-arrow-image" src="images/up-arrow.png" alt="to_top"
+                            title="Top of the page"></a>
+                    <div id="desktop-header">
+
+                        <a class="username">Name Surname</a>
+
+
+                        <!-- <img class="header-profile-pic" src="images/default-profile.png" alt="header-profile-pic"/> -->
+                    </div>
+                    <!--Right dropdown menu for mobile-->
+                    <div class="dropdown">
+                        <div class="dropbtn" onclick="myFunction('right_dropdown')">
+                            <img class="header-profile-pic" src="images/default-profile.png" alt="header-profile-pic" />
+                            <i class="arrow down2"></i>
+
+                        </div>
+                        <div class="dropdown-content" id="help_dropdown">
+                            <a onclick="centralContentChange('#report-problem')"> Report a problem</a>
+                            <a> User Guide</a>
+                        </div>
+
+                        <div class="dropdown-content" id="right_dropdown">
+                            <div>
+                                <a class="username" id="hide-name-dropdown"> Name Surname</a>
+                            </div>
+                            <a onclick="centralContentChange('#user-profile')">Profile</a>
+                            <a onclick="centralContentChange('#notifications')">Notifications</a>
+                            <a onclick="logout()">Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </nav>
+        </header>
+        <!--Buttons section to navigate through the page-->
+        <div class="col-3 col-s-5" id="left-container">
+            <div class="container" id="index-buttons">
+
+                <div>
+                    <a class="button1" onclick="centralContentChange('#courses')"><span>Course</span></a>
+                    <a class="button1" id="change-with-role-button"
+                        onclick="centralContentChange('#my-courses')"><span>My courses</span></a>
+                    <a class="button1" onclick="centralContentChange('#forums'); showForums();"><span>Forums</span></a>
+                    <a class="button1" id="activities-button" onclick="centralContentChange('#activities'); showActivities();"><span>Activities</span></a>
+                    <a id="courses-teacher-button" class="button1"
+                        onclick="centralContentChange('#courses-teacher')"><span>Materials</span></a>
+                    <a id="courses-student-button" class="button1"
+                        onclick="centralContentChange('#courses-student')"><span>Materials</span></a>
+                    <a id="teacher-grades-button" class="button1"
+                        onclick="centralContentChange('#teacher-grades')"><span>Grades</span></a>
+                    <a id="student-grades-button" class="button1"
+                        onclick="centralContentChange('#student-grades')"><span>Grades</span></a>
+                    
+                        <!--These links are hidden in desktop mode-->
+                    <a class="button1 tablet-link" href="#news-events"><span>Last News</span></a>
+                    <a class="button1 tablet-link" href="#news-events"><span>Next Events</span></a>
+                    <a class="button1 tablet-link" href="#todo-list"><span>TO-DO list</span></a>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Middle container-->
+        <div class="col-6 col-s-7" id="middle-container-wrapper">
+            <div class="container middle-container" id="courses">
+                <section class="container-element trial">
+                    <h1 class="course-h1">Topic 1: Artifical intelligence</h1>
+                    <p>In the topic of Artificial intelligence we will learn how to make bots that can help us with
+                        daily tasks</p>
+                    <img class="topic-image" src="images/ai.png" alt="Artifical Intelligence" />
+
+                    <h2>Video 1</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/7O60HOZRLng"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>In this video we will learn the basics of Python a fundamental language for A.I.</p>
+
+                    <h2>Video 2</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/FX322RVNGj4"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>This video is centered about Jenkins a useful program that will allow us to automate tasks</p>
+                    <h2>Video 3</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/5F9YzkpnaRw"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>This video will show us how are heuristics related to artificial intelligence</p>
+                </section>
+
+                <section class="container-element">
+
+                    <h1 class="course-h1">Topic 2: Cryptography</h1>
+                    <p>In the topic of Cryptography we will make the student aware of the current importance of computer
+                        security and to show the vulnerabilities and threats the technology involved faces</p>
+                    <img class="topic-image" src="images/cripto.png" alt="Cryptography" />
+
+                    <h2>Video 1</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/Kf9KjCKmDcU"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>In this video we will learn the basics of Cryptography an important matter in a world where
+                        privacy is seeked for users</p>
+
+                    <h2>Video 2</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/O4xNJsjtN6E"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>In this video we explained the complex mechanism AES protocol follows to provide us with a cipher
+                    </p>
+
+                    <h2>Video 3</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/aGfxZtlT5_s"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>This video will show us how P2PE works and how it helps us in our daily lives</p>
+                </section>
+
+                <section class="container-element">
+                    <h1 class="course-h1">Topic 3: Databases</h1>
+
+                    <p>We are surrounded by databases and learning about them is key to evolve in the computer science
+                        field as they are used to keep track of all the data that is generated</p>
+                    <img class="topic-image" src="images/data.png" alt="Databases" />
+
+                    <h2>Video 1</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/wR0jg0eQsZA"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>In this video we will learn what is a database and why are they so important</p>
+
+                    <h2>Video 2</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/HXV3zeQKqGY"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>Learning SQL is essential for managing databases and understanding how they work from the inside,
+                        this video will give us an insight on this topic</p>
+
+                    <h2>Video 3</h2>
+                    <div class="centered">
+                        <iframe src="https://www.youtube.com/embed/f6VWSlnHGCE"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <p>Databases are error prone and for this we use triggers, this video teaches us what is the best
+                        way to use them</p>
+                </section>
+
+            </div>
+            <div class="container middle-container" id="students">
+                <table class="my-table">
+                    <!-- table row table header table data -->
+                    <thead>
+                        <tr>
+                            <th class="my-th">Profile</th>
+                            <th class="my-th">Name</th>
+                            <th class="my-th">Email</th>
+                            <th class="my-th">Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/1.jpeg" alt="Livie Marybeth" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Yura Ronald</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">yuraRonald@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:yuraRonald@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"> <img src="images/profile/2.jpeg" alt="Ana Sabina" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Livie Marybeth</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">livieMarybeth@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:livieMarybeth@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/3.jpeg" alt="Bartek Fairuz" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Bartek Fairuz</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">bartekFairuz@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:bartekFairuz@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/4.jpeg" alt="Oliver Madison" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Oliver Madison</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">oliverMadison@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:oliverMadison@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/5.jpeg" alt="Eli Lonnie" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Eli Lonnie</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">eliLonnie@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:eliLonnie@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/14.jpeg" alt="Marcy Lovell" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Marcy Lovell</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">marcyLovell@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:marcyLovell@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/7.jpeg" alt="Kristie Dawn" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Kristie Dawn</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">kristieDawn@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:kristieDawn@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/15.jpeg" alt="Dillon Cyrus" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Dillon Cyrus</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">dillonCyrus@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:dillonCyrus@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"> <img src="images/profile/8.jpeg" alt="Rosaline Debbi"
+                                    class="profile-pic"></td>
+                            <td class="my-td">
+                                <p class="name">Rosaline Debbi</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">rosalineDebbi@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:rosalineDebbi@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"><img src="images/profile/10.jpeg" alt="Aaron Bernetta"
+                                    class="profile-pic"></td>
+                            <td class="my-td">
+                                <p class="name">Aaron Bernetta</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">aaronBernetta@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:aaronBernetta@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="my-td"> <img src="images/profile/11.jpeg" alt="Lily Hubert" class="profile-pic">
+                            </td>
+                            <td class="my-td">
+                                <p class="name">Lily Hubert</p>
+                            </td>
+                            <td class="my-td">
+                                <p class="e-mail">lilyHubert@student</p>
+                            </td>
+                            <td class="my-td"><a href="mailto:lilyHubert@student.com"><img src="images/email.svg"
+                                        alt="message icon" class="message"></a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="container middle-container" id="my-courses">
+                <div class="container-element">
+                    <h1>My Courses</h1>
+                    <ul>
+                        <li><img src="images/ai.png" alt="Artificial Intelligence" />
+                            <p>Artificial Intelligence</p>
+                        </li>
+                        <li><img src="images/cripto.png" alt="Cryptography" />
+                            <p>Cryptography</p>
+                        </li>
+                        <li><img src="images/data.png" alt="Databases & File Systems" />
+                            <p>Databases & File Systems</p>
+                        </li>
+                        <li><img src="images/software.png" alt="Software Engineering" />
+                            <p>Software</p>
+                        </li>
+                        <li><img src="images/operating-system.png" alt="Operating Systems" />
+                            <p>Operating Systems</p>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="container middle-container" id="forums">
+                <div id="center-panel">
+
+                </div>
+            
+            </div>
+            <div class="container middle-container" id="activities">
+                <div id="activites-panel">
+                    
+                </div>
+            
+            </div>
+            <div class="container middle-container" id="report-problem">
+                <h1>Report a problem</h1>
+                <p id="text-report-problem">I you have found any issue in the platform, feel free to indicate what would
+                    you like to see improved!</p>
+                <br>
+                <textarea id="text-area-report-problem" name="text-area-email"
+                    placeholder="Tell us what should we improve!"></textarea>
+                <br>
+                <p id="feedback-report-problem">feedback</p>
+                <br>
+                <button id="button-report-problem" onclick="reportProblem()">Send</button>
+            </div>
+
+            <div class="container middle-container" id="courses-teacher">
+                <div class="format-courses">
+                    <div class="select-course-container">
+                        <p class="select-course-label">Select course:</p>
+                        <select id="course-select" name="course-select">
+                            <option value="artificial-intelligence">Artificial Intelligence</option>
+                            <option value="databases">Databases</option>
+                            <option value="crypto">Cryptography</option>
+                            <option value="os">Operating Systems</option>
+                            <option value="software">Software</option>
+                        </select>
+                    </div>
+                    <h1 id="course-title"> Course title </h1>
+                    <h2 id="unit-1-title"> Unit 1</h2>
+                    <div id="unit-1-content"></div>
+
+                    <h2 id="unit-2-title"> Unit 2</h2>
+                    <div id="unit-2-content"></div>
+                </div>
+                
+                <form action="#add-material-popup">
+                    <input id="button-add-course-material" type="submit" value="Add material" />
+                </form>
+                
+
+
+            </div>
+
+            <div class="container middle-container" id="courses-student">
+                <div class="format-courses">
+                    <div class="select-course-container">
+                        <p class="select-course-label">Select course:</p>
+                        <select id="course-select-student" name="course-select-student">
+                            <option value="artificial-intelligence">Artificial Intelligence</option>
+                            <option value="databases">Databases</option>
+                            <option value="crypto">Cryptography</option>
+                            <option value="os">Operating Systems</option>
+                            <option value="software">Software</option>
+                        </select>
+                    </div>
+                    <h1 id="course-title-student"> Course title </h1>
+                    <h2 id="unit-1-title-student"> Unit 1</h2>
+                    <div id="unit-1-content-student"></div>
+
+                    <h2 id="unit-2-title-student"> Unit 2</h2>
+                    <div id="unit-2-content-student"></div>
+                </div>
+
+
+
+
+            </div>
+            <div class="container middle-container" id="notifications">
+                <div class="container-element" style="overflow: hidden;">
+                    <h1>Notifications</h1>
+                    <div class="notification-el left">
+                        <h2>PC:</h2>
+                        <div>
+                            <h3>Events:</h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <h3>Forums:</h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <h3>News:</h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="notification-el right">
+                        <h2>Mobile:</h2>
+                        <div>
+                            <h3>Events:</h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <h3>Forums:</h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <h3>News:</h3>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container middle-container" id="user-profile">
+                <div class="container-element" style="overflow: hidden;">
+                    <h1>Profile</h1>
+                    <div id="link-profile">
+                        <img id="profile-img" src="images/default-profile.png" alt="profile-pic">
+                        <a>Change your profile picture</a>
+                    </div>
+                    <h2 class="right">Name Surname</h2>
+                    <p class="right">Student in Informatics Engineering</p>
+                    <p class="right">Course 2020-2021</p>
+                    <p class="right">Enrolment: 20/11/2020</p>
+                </div>
+            </div>
+
+            <div class="container middle-container" id="student-grades">
+
+                <h1>Grades</h1>
+                <table class="t01" id="exceltab">
+                    <tr>
+                      <th class="my-th">Course</th>
+                      <th class="my-th">Unit Test 1</th> 
+                      <th class="my-th">Unit Test 2</th>
+                      <th class="my-th">Unit Test 3</th>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Python</td>
+                      <td class="my-td">2.5</td>
+                      <td class="my-td">5.0</td>
+                      <td class="my-td">5.3</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">DataBase Management</td>
+                      <td class="my-td">7.8</td>
+                      <td class="my-td">9.4</td>
+                      <td class="my-td">9.4</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">R programming</td>
+                      <td class="my-td">3.3</td>
+                      <td class="my-td">8.0</td>
+                      <td class="my-td">2.4</td>
+                      </tr>
+                    <tr>
+                      <td class="my-td">Business management</td>
+                      <td class="my-td">0.1</td>
+                      <td class="my-td">2.4</td>
+                      <td class="my-td">3.5</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Front-end Design</td>
+                      <td class="my-td">10.0</td>
+                      <td class="my-td">10.0</td>
+                      <td class="my-td">9.4</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">User Interfaces</td>
+                      <td class="my-td">8.5</td>
+                      <td class="my-td">7.0</td>
+                      <td class="my-td">9.4</td>
+                    </tr>
+                  </table>
+                  <h1>Summary of your Courses</h1>
+                    <img class="graph-grades" src="images/graph-students.png" alt="graph1">
+                  <!-- Allow the user to download the grades as an Excel file -->
+                  <div id="center-buttons-grades">
+                    <br>
+                    <br>
+                    
+                    
+            <form id="form-request" action="#request-popup">
+                <input id="request-popup-button" type="submit" value="Revision Request"/>
+            </form>
+                <input id="download-grades-button" type="button" value="Download" class="submit" onclick="fnExcelReport();"/>
+            
+             
+            
+            <br>
+            <br>
+            
+                </div>
+            
+            </div>
+
+            <div class="container middle-container" id="teacher-grades">
+                
+                <h1>Grades</h1>
+                
+                <table class="t01">
+                    <tr>
+                      <th class="my-th">Student</th>
+                      <th class="my-th">Activity 1</th> 
+                      <th class="my-th">Activity 2</th>
+                      <th class="my-th">Activity 3</th>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Yura Ronald</td>
+                      <td class="my-td">2.5</td>
+                      <td class="my-td">5.0</td>
+                      <td class="my-td">5.3</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Livie Marybeth</td>
+                      <td class="my-td">7.8</td>
+                      <td class="my-td">9.4</td>
+                      <td class="my-td">9.4</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Bartek Fairuz</td>
+                      <td class="my-td">3.3</td>
+                      <td class="my-td">8.0</td>
+                      <td class="my-td">2.4</td>
+                      </tr>
+                    <tr>
+                      <td class="my-td">Oliver Madison</td>
+                      <td class="my-td">0.1</td>
+                      <td class="my-td">2.4</td>
+                      <td class="my-td">3.5</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Eli Lonnie</td>
+                      <td class="my-td">10.0</td>
+                      <td class="my-td">10.0</td>
+                      <td class="my-td">9.4</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Marcy Lovell</td>
+                      <td class="my-td">10.0</td>
+                      <td class="my-td">8.3</td>
+                      <td class="my-td">4.4</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Kristie Dawn</td>
+                      <td class="my-td">7.2</td>
+                      <td class="my-td">2.4</td>
+                      <td class="my-td">9.4</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Dillion Cyrus</td>
+                      <td class="my-td">4.7</td>
+                      <td class="my-td">0.7</td>
+                      <td class="my-td">9.1</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Rosalin Debbi</td>
+                      <td class="my-td">7.5</td>
+                      <td class="my-td">9.8</td>
+                      <td class="my-td">9.2</td>
+                    </tr>
+                    <tr>
+                      <td class="my-td">Aaron Bernetta</td>
+                      <td class="my-td">1.1</td>
+                      <td class="my-td">8.7</td>
+                      <td class="my-td">5.0</td>
+                    </tr>
+                  </table>
+                  <h1>Graphs</h1>
+                <h2>Unit Test 1</h2>
+                  <img class="graph-grades" src="images/asig1act1.png" alt="graph1">
+                <h2>Unit Test 2</h2>
+                  <img class="graph-grades" src="images/asig1act2.png" alt="graph2">
+                <h2>Unit Test 3</h2>
+                  <img class="graph-grades" src="images/a1e3.png" alt="graph3">
+            </div>
+
+            <div class="container middle-container" id="user-guide">
+                <div class="container-element" style="overflow: hidden;">
+                    <h1>User Guide</h1>
+                    <h2>What can you do in...</h2>
+                    <h3>My Courses</h3>
+                    <h3>Grades</h3>
+                    <h3>Forums</h3>
+                    <h3>Students</h3>
+                    <h3>Profile</h3>
+                    <h3>Notifications</h3>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--Add Material Popup-->
+        <div class="lightbox" id="add-material-popup">
+            <figure class="figure-popup">
+                <a href="#" class="close"></a>
+                <figcaption class="figcaption-popup">
+                    <form id="form-add-material">
+                        <h1 class="header-form-add-material">Add a new item</h1>
+                        <label class="header-form-add-material" for="name-event">Material name *</label><br><br>
+                        <input type="text" id="name-material" name="name-material" placeholder="Material name"
+                            required><br><br>
+
+                        <label class="header-form-add-material" for="type-material">Choose event material</label>
+                        <br><br>
+                        <select id="type-material" name="type-material">
+                            <option value="document">Document</option>
+                            <option value="video">Video</option>
+                            <option value="poll">Poll</option>
+                            <option value="delivery">Delivery</option>
+                        </select><br><br>
+                        <div id="hide-video-material">
+                            <label class="header-form-add-material" for="video-link-add">Video link</label><br><br>
+                            <input type="text" id="video-link-add" name="video-link-add"
+                                placeholder="Ex: https://youtu.be/dQw4w9WgXcQ"><br><br>
+                        </div>
+                        <div id="hide-file-material">
+                            <label class="header-form-add-material " for="video-link-add">File</label><br><br>
+                            <input type="file" id="file-selector" name="file-selector"><br><br>
+                        </div>
+                        <div id="hide-poll-material">
+                            <label class="header-form-add-material " for="poll-options-selector">Specify poll options
+                                between commas</label><br><br>
+                            <input type="text" id="poll-options-selector" name="poll-options-selector"
+                                placeholder="Ex: option1, option2, option3"><br><br>
+                        </div>
+                        <div id="hide-delivery-material">
+                            <label class="header-form-add-material " for="deadline-selector">Specify
+                                deadline</label><br><br>
+                            <input type="date" id="deadline-selector" name="deadline-selector"><br><br>
+                        </div>
+                        <p id="feedback-material">feedback</p>
+                        <label class="header-form-add-material" for="course-add-material">Choose course</label> <br><br>
+                        <select id="course-add-material" name="course-add-material">
+                            <option value="artificial-intelligence">Artificial Intelligence</option>
+                            <option value="databases">Databases</option>
+                            <option value="crypto">Cryptography</option>
+                            <option value="os">Operating Systems</option>
+                            <option value="software">Software</option>
+                        </select><br><br>
+
+                        <label class="header-form-add-material" for="unit-add-material">Choose unit</label> <br><br>
+                        <select id="unit-add-material" name="unit-add-material">
+                            <option value="unit-1">Unit 1</option>
+                            <option value="unit-2">Unit 2</option>
+                        </select><br><br>
+                        <button id="button-add-material" onclick="addMaterial(); return false;">Add material</button>
+
+                    </form>
+                </figcaption>
+            </figure>
+        </div>
+
+        <!--Poll popup-->
+        <div class="lightbox" id="poll-popup">
+            <figure class="figure-popup">
+                <a href="#" class="close"></a>
+                <figcaption class="figcaption-popup">
+                    <h1>Poll</h1>
+                    <p>Exam Date</p>
+                    <p>Submission Date:21/12/2020</p>
+                    <p>Select a day for setting the exam:</p>
+                    <select id="select-poll">
+                        <option value="25th December">25th December</option>
+                        <option value="31st December">31st December</option>
+                        <option value="1st January">1st January</option>
+                    </select>
+                    <button onclick="submitPoll();return false;">Submit</button>
+                    <div id="submit-poll">Submitted</div>
+                   
+                </figcaption>
+            </figure>
+        </div>
+
+        <!--Delivery popup-->
+        <div class="lightbox" id="delivery-popup">
+            <figure class="figure-popup">
+                <a href="#" class="close"></a>
+                <figcaption class="figcaption-popup">
+                    <h1>Delivery</h1>
+                    <p>Exercise 1</p>
+                    <p>Submission Date:21/12/2020</p>
+
+                    <div id="delivery-status">
+                        Status:
+                        <div id="submission">Not submitted</div>
+                    </div>
+                    
+                        <input id="input-delivery" type="file" name="filename">
+                    
+                    <p>Comments:</p>
+                    <textarea id="delivery-comment" placeholder="Type your comments here"></textarea>
+                    <button id="btn-submit" onclick="changeStatus();return false;">Submit</button>
+                </figcaption>
+            </figure>
+        </div>
+
+        <!--Request revision popup-->
+        <div class="lightbox" id="request-popup">
+            <figure class="figure-popup">
+                <a href="#" class="close"></a>
+                <figcaption class="figcaption-popup">
+                    <h1>Revision Request</h1>
+                    <p>Select subject to review</p>
+                    <select id="select-request-review">
+                        <option value="R programming">R programming</option>
+                        <option value="User interfaces">User interfaces</option>
+                        <option value="Business Management">Business management</option>
+                        <option value="Database management">Database management</option>
+                        <option value="Python">Python</option>
+                    </select>
+                    <p>Select an activity to review</p>
+                    <select id="select-activity-review">
+                        <option value="Unit test 1">Unit test 1</option>
+                        <option value="">Unit test 2</option>
+                        <option value="1st January">Unit test 3</option>
+                    </select>
+                    <p>Explain why you request a review</p>
+                    <textarea id="request-comment" placeholder="Type your reasons here..."></textarea>
+                    <br>
+                    <p id="feedback-request-review">feedback</p>
+                    <br>
+                    <button id="request-submit" onclick="submitRevisionRequest();return false;">Submit</button>
+                </figcaption>
+            </figure>
+        </div>
+
+        <!--Last news and last events section-->
+        <div class="col-3 col-s-12">
+            <div class="container" id="news">
+                <section class="container-element" id="search-bar">
+                    <div id="search-container">
+                        <div class="search-drop">
+                            <div id="mySearch" class="search-content">
+                                <input type="text" oninput="mySearchDrop()" placeholder="Search.." id="mySearches"
+                                    onkeyup="filterFunction()">
+                                <div id="content-searches">
+                                    <a onclick="centralContentChange('#courses-student')">Courses</a>
+                                    <a onclick="centralContentChange('#courses-student')">Subject</a>
+                                    <a onclick="centralContentChange('#courses-student')">Material</a>
+                                    <a onclick="centralContentChange('#grades')">Grades</a>
+                                    <a onclick="centralContentChange('#grades')">Statistics</a>
+                                    <a onclick="centralContentChange('#grades')">Scores</a>
+                                    <a onclick="centralContentChange('#report-problem')">Report a problem</a>
+                                    <a onclick="centralContentChange('#user-profile')">Profile</a>
+                                    <a onclick="centralContentChange('#user-profile')">Me</a>
+                                    <a onclick="centralContentChange('#notifications')">Notifications</a>
+                                    <a onclick="centralContentChange('#notifications')">Sound</a>
+                                    <a onclick="centralContentChange('#notifications')">Silence</a>
+                                    <a onclick="logout()">Log out</a>
+                                    <a onclick="logout()">Disconnect</a>
+                                    <a onclick="changeColor()">Contrast mode</a>
+                                    <a onclick="changeColor()">Night mode</a>
+                                    <a onclick="changeColor()">Visibility mode</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="container-element" id="news-events">
+                    <!--Lightbox links-->
+                    <h1>Last News</h1>
+                    <ul>
+                        <li><a href="#news1">10/09-New videos uploaded</a></li>
+                        <li><a href="#news2">09/09-New topic added</a></li>
+                        <li><a href="#news3">09/09-New messages in forum</a></li>
+                    </ul>
+
+                    <h1><a id="next-events" href="#event">
+                            Next events</a></h1>
+                    <ul>
+                        <li><a href="#event">20/10-Publication of grades</a></li>
+                        <li><a href="#event">15/10-Last Exam</a></li>
+                        <li><a href="#event">11/09-Saint Nicasio (no class)</a></li>
+                    </ul>
+
+                    <!-- Lighbox elements-->
+                    <div class="lightbox" id="news1">
+                        <figure>
+                            <a href="#" class="close"></a>
+                            <figcaption>
+                                <div class="lightbox_title">New Videos Uploaded</div>
+                                <div class="lightbox_data">
+
+                                    <p>Good morning,<br> I have uploaded new videos for each topic, I hope they are
+                                        helpful for your learning,<br> if you have any doubt or would like to have any
+                                        extra material to work with do not doubt in contacting me.<br> Miss Doe.</p>
+                                    <p>From: Miss Doe, Coordinator of the Course</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="lightbox" id="news2">
+                        <figure>
+                            <a href="#" class="close"></a>
+                            <figcaption>
+                                <div class="lightbox_title">New Topic Added</div>
+                                <div class="lightbox_data">
+                                    <p> Good evening,<br> The last topic about artificial intelligence has been added,
+                                        this is one of the most interesting fields so I hope some of you grow fond of
+                                        it,<br> if you have any doubt do not hesitate to contact me.<br> Miss Doe.</p>
+                                    <p>From: Miss Doe, Coordinator of the Course</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="lightbox" id="news3">
+                        <figure>
+                            <a href="#" class="close"></a>
+                            <figcaption>
+                                <div class="lightbox_title">New Messages in Forum</div>
+                                <div class="lightbox_data">
+                                    <p> Good night,<br> I know some of you are shy but there are a few unanswered
+                                        questions and unclosed topics that require your attention,<br> I will take into
+                                        account participation and doubt solving, give it a try. <br>Miss Doe.</p>
+                                    <p>From: Miss Doe, Coordinator of the Course</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="lightbox" id="event" onclick="createCalendar()">
+                        <figure>
+
+                            <a href="#" class="close"></a>
+                            <figcaption id="calendar-window">
+                                
+                                    <div id="evoCalendar"></div>
+                                    <form id="form-add-event-calendar">
+                                        <h1 class="header-form-calendar">Add a new event</h1>
+                                        <label class="add-event-form-calendar" for="name-event">Event Title
+                                            *</label><br><br>
+                                        <input type="text" id="name-event" name="name-event" placeholder="Event title"
+                                            required><br><br>
+
+                                        <label class="add-event-form-calendar" for="date-event">Date of the event
+                                            *</label><br><br>
+                                        <input type="date" id="date-event" name="date-event" required><br><br>
+
+                                        <label class="add-event-form-calendar" for="type-event">Choose event
+                                            type</label> <br><br>
+                                        <select id="type-event" name="type-event">
+                                            <option value="event">Event</option>
+                                            <option value="birthdate">Birthdate</option>
+                                            <option value="holiday">Holiday</option>
+                                        </select><br><br>
+                                        <button id="button-add-event" onclick="addEventCalendar(); return false;">Add
+                                            Event</button>
+
+                                    </form>
+                                    <form id="form-remove-event-calendar">
+                                        <h1 class="header-form-calendar">Remove an existing event</h1>
+                                        <label class="add-event-form-calendar" for="name-event">Event Title
+                                            *</label><br><br>
+                                        <input type="text" id="name-event-remove" name="name-event-remove"
+                                            placeholder="Event title" required><br><br>
+                                        <button id="button-remove-event"
+                                            onclick="removeEventCalendar(); return false;">Remove Event</button>
+
+                                    </form>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
+                <section class="container-element" id="todo-list">
+                    <div id="todo-list-container">
+                        <h2 id="todo-list-title">TO-DO list</h2>
+                        <ul id="todo-un-list">
+
+                        </ul>
+                    </div>
+                    <div id="input-container-todo-list">
+                        <input class="text" id="add-todo-item">
+                        <button id="add-todo-item-button" onclick="addTODO()">Add</button>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <footer>
+            <nav>
+                <!--Some links at the bottom left part of the footer-->
+                <a class="no-left-border-button" href="https://www.uc3m.es/library/intellectual-industrial-property/intellectual-property" target="_blank">Copyright</a>
+                <a href="https://www.uc3m.es/home/legal-information/privacy-policy" target="_blank">Privacy Policy</a>
+                <a href="https://www.uc3m.es/library/contact-us" target="_blank">Contact</a>
+
+                <!--Some social media links at the right bottom of the footer-->
+                <div class="nav-right">
+                    <a href="https://twitter.com/deilaboratorio" target="_blank" class="no-left-border-button"><img
+                            src="images/twitter.png" alt="twitter"></a>
+                    <!--Links with the html version of the night mode-->
+                    <a href="https://www.instagram.com/universidadcarlosiiidemadrid/?hl=es" target="_blank"><img
+                            src="images/instagram.webp" alt="instagram"></a>
+                    <a href="https://www.facebook.com/uc3m/" target="_blank"><img src="images/facebook.png"
+                            alt="facebook"></a>
+
+                </div>
+
+            </nav>
+        </footer>
+
+
+    </div>
+    <div id="fullscreen-popup"></div>
+</body>
+
+
+</html>

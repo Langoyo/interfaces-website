@@ -1,0 +1,448 @@
+[class*="col-"] {
+    width: 98%;
+    float: left;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+}
+
+
+/*For tablets*/
+
+@media only screen and (min-width: 600px) {
+    .col-s-1 {
+        width: 8.33%;
+    }
+
+    .col-s-2 {
+        width: 16.66%;
+    }
+
+    .col-s-3 {
+        width: 25%;
+    }
+
+    .col-s-4 {
+        width: 33.33%;
+    }
+
+    .col-s-5 {
+        width: 41.66%;
+    }
+
+    .col-s-6 {
+        width: 50%;
+    }
+
+    .col-s-7 {
+        width: 58.33%;
+    }
+
+    .col-s-8 {
+        width: 66.66%;
+    }
+
+    .col-s-9 {
+        width: 75%;
+    }
+
+    .col-s-10 {
+        width: 83.33%;
+    }
+
+    .col-s-11 {
+        width: 91.66%;
+    }
+
+    .col-s-12 {
+        width: 100%;
+    }
+
+    .box {
+        margin-left: 16.67% !important;
+        margin-right: 16.67% !important;
+    }
+}
+
+
+/*For desktop*/
+
+@media only screen and (min-width: 768px) {
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+
+    .box {
+        margin-left: 29.45% !important;
+        margin-right: 29.45% !important;
+    }
+}
+
+body {
+    background-image: url('../images/background.jpeg');
+      /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+    background-attachment: fixed;
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}
+
+/*Containers format*/
+.box{
+    background-color:  #423f3b;
+    border-radius: 50%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    
+}
+
+.box .user-box {
+    position: relative;
+  }
+
+#change-form{
+    margin-top:50px;
+    margin-bottom:10px;
+    text-align: center;
+}
+
+#logo-container{
+    text-align: center;
+    margin-bottom: 70px;
+    margin-top: 30px;
+
+}
+
+#logo, #logo-homepage{
+    width: 90%;
+    margin:5%;
+}
+
+/*Initially don't display register form*/
+    #register{
+    display: none;
+}
+
+#login-register-container {
+    display: none;
+}
+
+
+/*Overriding normal formatting of input boxes*/
+.box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.box .user-box input:focus {
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+
+/*Changing the format of labels*/
+.box .user-box label {
+    padding: 10px 0;
+    font-size: 20px;
+    color: #fff;
+    pointer-events: all;
+    transition: .5s;
+   /*position:absolute;
+    top:20px;*/
+}
+
+#note {
+    color: white;
+    font-size: 15px;
+    float: clear;
+}
+
+/*Styling of selects*/
+select {
+    /* Additional resets for further consistency*/
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+}
+
+select {
+    border: 1px solid;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #edeae5;
+}
+
+  /*Checkbox*/
+#terms {
+    /**/
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 9px;
+    border-radius: 3px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 10px
+}
+
+#terms:active, #terms:checked:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+#terms:checked {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+    padding: 0px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+#terms:checked:after {
+    content: '\2714';
+    font-size: 14px;
+    color: #99a1a7;
+    margin-left: 1px;
+    margin-bottom: 1px;
+}
+
+/*Links*/
+#link-terms {
+    text-decoration: none;
+    color: white;
+}
+
+#link-terms:hover {
+    text-decoration: underline;
+}
+
+/*Formatting redirection texts*/
+#change-text {
+    color: white;
+}
+
+#change-form-link {
+    color: #2783df;
+}
+
+#change-form-link:hover {
+    text-decoration: underline;
+}
+
+/*buttons formatting*/
+.button {
+    display: inline-block;
+    padding: 0.5em 3em;
+    border: 0.16em solid #FFFFFF;
+    margin: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.15s;
+    background-color: transparent;
+    text-align: center;
+}
+
+.button:hover {
+    color: #2783df;
+    border-color: #2783df;
+}
+
+.button:active {
+    color: #2783df;
+    border-color: #2783df;
+}
+
+.button-wrapper {
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#save-button {
+    margin-right: 2%;
+}
+
+.submit-button {
+    margin-left: 2%;
+}
+
+
+    /*Hompage*/
+#description-text {
+    color: white;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#slogan-text {
+    color: white;
+    margin-bottom: 50px;
+    font-style: italic;
+    font-size: 20px;
+    color: #e0ffff
+}
+
+#homepage {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+    /*pop up*/
+#remember-me {
+    color: white;
+}
+
+#reset-password {
+    color: white;
+    float: right;
+}
+
+#reset-password:hover {
+    color: #2783df;
+    text-decoration: underline;
+}
+
+#popup1 {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    opacity: 1;
+}
+
+.popup {
+    float: none!important;
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #2783df;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+#text-area-email {
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

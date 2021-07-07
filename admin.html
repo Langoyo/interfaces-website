@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html id="global-container">
+    <head>
+        <meta charset="UTF-8">
+        <title>Open Online Coding - Administrator mode</title>
+        <link rel=" icon" href="images/logo_no_text.PNG">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="script/database.js"></script>
+        <script src="script/admin.js"></script>
+        <link rel="stylesheet" href="style/index.css">
+        <link rel="stylesheet" href="style/admin.css">
+        <link rel="stylesheet" href="style/report-problem.css">
+        
+        <title>Admin</title>
+    </head>
+    <header>
+
+        <!--Title of the page-->
+        <img id="logo" src="images/logo.png" alt="logo" onclick="centralContentChange('#courses')" />
+
+        <!--Header navigation bar-->
+        <nav>
+            <div class="dropdown left_drop">
+                <button class="dropbtn" id="index-dropdown-button" onclick="showDropdown('left_dropdown')">
+                    <i class="arrow down"></i>
+                </button>
+                <div class="dropdown-content" id="left_dropdown">
+                    <a onclick="onCoursesClicked()">Courses</a>
+                    <a onclick="onParticipantsClicked()">Participants</a>
+                    <a onclick="onForumsClicked()">Forums</a>
+                </div>
+            </div>
+
+
+            <!--Links to sctions on the left part of the header. 
+                Calling a function that hides other elements and displays the one passed as parameter-->
+            <div id="desktop_links">
+                <a  onclick="onCoursesClicked()">Courses</a>
+                <a  onclick="onParticipantsClicked()">Participants</a>
+                <a  onclick="onForumsClicked()">Forums</a>
+            </div>
+
+            <!--Options on the right part of the header-->
+            <div class="nav-right">
+                <a href="#" target="_self"><img id="spain-image" src="images/spain.svg" alt="language"
+                        title="Change language"></a>
+                <a onclick="myFunction('help_dropdown')"><img id="help-image" src="images/information.png"
+                        alt="help" title="Help"></a>
+                <a href="#" onclick="changeColor()"><img id="moon-image" src="images/night-day.png" alt="night_mode"
+                        title="Night mode"></a>
+                <a href="#global-container"><img id="up-arrow-image" src="images/up-arrow.png" alt="to_top"
+                        title="Top of the page"></a>
+                <div id="desktop-header">
+                    <a id="header-name"></a>
+                </div>
+                <!--Right dropdown menu for mobile-->
+                <div class="dropdown">
+                    <div class="dropbtn" onclick="showDropdown('right_dropdown')">
+                        <img id="header-pic" class="header-profile-pic" src="images/default-profile.png" alt="header-profile-pic" />
+                        <i class="arrow down2"></i>
+
+                    </div>
+                    <div class="dropdown-content" id="help_dropdown">
+                        <a onclick="onReportProblemClicked()"> Report a problem</a>
+                        <a> User Guide</a>
+                    </div>
+
+                    <div class="dropdown-content" id="right_dropdown">
+                        <div>
+                            <a class="username" id="hide-name-dropdown"> Name Surname</a>
+                        </div>
+                        <a onclick="onLogOutClicked()">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+    <body onload="onPageLoad()">
+        <div class="main-body">
+            <div class="col-3 col-s-5" id="left-container">
+                <a class="button1" onclick="onCoursesClicked()"><span>Courses</span></a><br>
+                <a class="button1" onclick="onParticipantsClicked()"><span>Participants</span></a><br>
+                <a class="button1" onclick="onForumsClicked()"><span>Forums</span></a>
+            </div>
+            <div class="col-5 col-s-7" >
+                <div class="container middle-container" id="center-panel">
+                </div>
+            </div>
+        </div>
+        <div id="fullscreen-popup"></div>
+        <div class="footer">
+            <footer>
+                <nav>
+                    <!--Some links at the bottom left part of the footer-->
+                    <a class="no-left-border-button" onclick="centralContentChange('#copyright')">Copyright</a>
+                    <a onclick="centralContentChange('#private-policy')">Privacy Policy</a>
+                    <a onclick="centralContentChange('#contact')">Contact</a>
+    
+                    <!--Some social media links at the right bottom of the footer-->
+                    <div class="nav-right">
+                        <a href="https://twitter.com/deilaboratorio" target="_blank" class="no-left-border-button"><img
+                                src="images/twitter.png" alt="twitter"></a>
+                        <!--Links with the html version of the night mode-->
+                        <a href="https://www.instagram.com/universidadcarlosiiidemadrid/?hl=es" target="_blank"><img
+                                src="images/instagram.webp" alt="instagram"></a>
+                        <a href="https://www.facebook.com/uc3m/" target="_blank"><img src="images/facebook.png"
+                                alt="facebook"></a>
+                    </div>
+                </nav>
+            </footer>
+        </div>
+    </body>
+</html>
